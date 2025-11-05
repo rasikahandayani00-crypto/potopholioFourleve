@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Kelas 12-4 - SMA N 8 Purworejo</title>
+    <!-- Menghubungkan file HTML dengan file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button id="change-bg-btn" class="cta-button" style="position: absolute; top: 10px; right: 10px; z-index: 3;">Ubah Background</button>
+        <h1>Profil Fourleve</h1>
+        <p>Tahun Ajaran 2025/2026</p>
+        <div class="hero-content">
+            <h2>Selamat Datang di Website Kelas 12-4</h2>
+            <p>12-4: Antara ambisi dan mager yang berdampingan damai.</p>
+            <a href="#tentang-kelas" class="cta-button">Pelajari Lebih Lanjut</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#tentang-kelas">Tentang Kami</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="anggota.html">Daftar Anggota</a></li>
+            <li><a href="media-sosial.html">Media Sosial</a></li>
+        </ul>
+    </nav>
+    <!-- Modal untuk Galeri Foto -->
+    <div id="modal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <!-- Modal untuk Feature Cards -->
+    <div id="featureModal" class="modal">
+        <span class="close-btn" onclick="closeFeatureModal()">&times;</span>
+        <div class="modal-content feature-modal-content">
+            <h3 id="featureTitle"></h3>
+            <div id="featureGallery" class="feature-gallery"></div>
+        </div>
+    </div>
+    <main>
+        <section id="tentang-kelas">
+            <h2>Tentang Kelas</h2>
+            <p>Kami adalah siswa-siswi Kelas 12-4 SMA N 8 Purworejo. Sebuah kelas yang memiliki dua hobi: tidur dan makan, tapi selalu siap kalau disuruh foto bareng! Kami bangga dengan keberagaman dan solidaritas yang kami miliki.</p>
+            <div class="features">
+                <div class="feature" onclick="openFeatureModal('prestasi')">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Prestasi Akademik</h3>
+                    <p>Kami selalu berusaha memberikan yang terbaik dalam pembelajaran.</p>
+                    <div class="feature-overlay">
+                        <span>Klik untuk melihat foto</span>
+                    </div>
+                </div>
+                <div class="feature" onclick="openFeatureModal('solidaritas')">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Solidaritas</h3>
+                    <p>Satu kelas, sejuta drama, tapi tetep kompak selamanya!.</p>
+                    <div class="feature-overlay">
+                        <span>Klik untuk melihat foto</span>
+                    </div>
+                </div>
+                <div class="feature" onclick="openFeatureModal('kegiatan')">
+                    <div class="feature-icon">🎉</div>
+                    <h3>Kegiatan Seru</h3>
+                    <p>Dari lomba sampai drama, yang penting rame dan seru!.</p>
+                    <div class="feature-overlay">
+                        <span>Klik untuk melihat foto</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri">
+            <h2>Galeri Foto</h2>
+            <div class="galeri-foto">
+                <!-- Pastikan gambar sudah ada di folder yang sama -->
+                <img src="fourleve.jpeg" alt="Foto kegiatan kelas">
+                <img src="fourleve2.jpeg" alt="Foto bersama saat acara sekolah">
+                <img src="fourleve3.jpeg" alt="Foto suasana belajar di kelas">
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FOURLEVE. Hak Cipta Dilindungi.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
