@@ -1,130 +1,311 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Fourleve</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a0033 0%, #4b0082 50%, #8a2be2 100%);
-            color: white;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Stars background */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-                              radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-                              radial-gradient(1px 1px at 90px 40px, #eee, transparent),
-                              radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-                              radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
-            background-repeat: repeat;
-            background-size: 200px 100px;
-            animation: twinkle 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        .welcome-container {
-            text-align: center;
-            z-index: 1;
-            position: relative;
-        }
-
-        .welcome-text {
-            font-size: 4rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #ffffff;
-            text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2;
-            animation: hologram 2s ease-in-out infinite alternate, fadeIn 3s ease-out;
-        }
-
-        @keyframes hologram {
-            0% { text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2; }
-            50% { text-shadow: 0 0 15px #ba55d3, 0 0 25px #ba55d3, 0 0 35px #ba55d3, 0 0 45px #ba55d3; }
-            100% { text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .enter-button {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            background: linear-gradient(45deg, #8a2be2, #ba55d3);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .enter-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(138, 43, 226, 0.7); }
-            100% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .welcome-text {
-                font-size: 2.5rem;
-                letter-spacing: 0.1em;
-            }
-            .enter-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Kelas 12-4 - SMA N 8 Purworejo</title>
+    <!-- Menghubungkan file HTML dengan file CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="welcome-container">
-        <h1 class="welcome-text">Welcome to Our Fourleve</h1>
-        <button class="enter-button" onclick="enterSite()">Enter</button>
+    <header>
+        <button id="change-bg-btn" class="cta-button" style="position: absolute; top: 10px; right: 10px; z-index: 3;">Ubah Background</button>
+        <h1>Profil Fourleve</h1>
+        <p>Tahun Ajaran 2025/2026</p>
+        <div class="hero-content">
+            <h2>Selamat Datang di Website Kelas 12-4</h2>
+            <p>12-4: Antara ambisi dan mager yang berdampingan damai.</p>
+            <a href="#tentang-kelas" class="cta-button">Pelajari Lebih Lanjut</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang-kelas">Tentang Kami</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#anggota">Daftar Anggota</a></li>
+            <li><a href="#media-sosial">Media Sosial</a></li>
+        </ul>
+    </nav>
+    <!-- Modal untuk Galeri Foto -->
+    <div id="modal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="img01">
     </div>
 
-    <script>
-        function enterSite() {
-            window.location.href = 'main.html';
-        }
+    <!-- Modal untuk Feature Cards -->
+    <div id="featureModal" class="modal">
+        <span class="close-btn" onclick="closeFeatureModal()">&times;</span>
+        <div class="modal-content feature-modal-content">
+            <h3 id="featureTitle"></h3>
+            <div id="featureGallery" class="feature-gallery"></div>
+        </div>
+    </div>
+    <main>
+        <section id="beranda">
+            <h2>Beranda</h2>
+            <p>Selamat datang di website resmi Kelas 12-4 SMA N 8 Purworejo. Di sini Anda dapat menemukan informasi tentang kelas kami, daftar anggota, galeri foto, dan media sosial.</p>
+        </section>
 
-        // Auto redirect after 5 seconds
-        setTimeout(() => {
-            window.location.href = 'main.html';
-        }, 5000);
-    </script>
+        <section id="tentang-kelas">
+            <h2>Tentang Kelas</h2>
+            <p>Kami adalah siswa-siswi Kelas 12-4 SMA N 8 Purworejo. Sebuah kelas yang memiliki dua hobi: tidur dan makan, tapi selalu siap kalau disuruh foto bareng! Kami bangga dengan keberagaman dan solidaritas yang kami miliki.</p>
+            <div class="features">
+                <div class="feature" onclick="openFeatureModal('prestasi')">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Prestasi Akademik</h3>
+                    <p>Kami selalu berusaha memberikan yang terbaik dalam pembelajaran.</p>
+                    <div class="feature-overlay">
+                        <span>Klik untuk melihat foto</span>
+                    </div>
+                </div>
+                <div class="feature" onclick="openFeatureModal('solidaritas')">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Solidaritas</h3>
+                    <p>Satu kelas, sejuta drama, tapi tetep kompak selamanya!.</p>
+                    <div class="feature-overlay">
+                        <span>Klik untuk melihat foto</span>
+                    </div>
+                </div>
+                <div class="feature" onclick="openFeatureModal('kegiatan')">
+                    <div class="feature-icon">🎉</div>
+                    <h3>Kegiatan Seru</h3>
+                    <p>Dari lomba sampai drama, yang penting rame dan seru!.</p>
+                    <div class="feature-overlay">
+                        <span>Klik untuk melihat foto</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri">
+            <h2>Galeri Foto</h2>
+            <div class="galeri-foto">
+                <!-- Pastikan gambar sudah ada di folder yang sama -->
+                <img src="fourleve.jpeg" alt="Foto kegiatan kelas">
+                <img src="fourleve2.jpeg" alt="Foto bersama saat acara sekolah">
+                <img src="fourleve3.jpeg" alt="Foto suasana belajar di kelas">
+            </div>
+        </section>
+
+        <section id="anggota">
+            <h2>Daftar Anggota</h2>
+            <input type="text" id="searchInput" placeholder="Cari nama anggota...">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTableBody">
+                    <tr>
+                        <td>1</td>
+                        <td>Eni wahyuti Reptaningsih</td>
+                        <td>Wali Kelas</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bagus Kuncoro Adi</td>
+                        <td>Ketua Kelas</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Muhammad Ghifari</td>
+                        <td>Wakil Ketua</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Cahyo Sigit</td>
+                        <td>Wakil Ketua</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Asri Pertriwi</td>
+                        <td>Sekretaris</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Ananda Dwi</td>
+                        <td>Sekretaris</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Nafiisa Yasmin</td>
+                        <td>Bendahara</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Sri Rezeki</td>
+                        <td>Bendahara</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Altis Idial</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Andita Syifania Utami</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Annisa Aulia Putri</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Asih Kurnia Ningsih</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Bergas .N.</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Briliant Fahrurozi</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Cahya klarisa Ningrum</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Debby Nafisha </td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Dhiya Hanun Kirana</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Fairuz Miftakhul Huda</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Fajri Zulkarnain</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Galang Atma Satria</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Hamdah Pertiwi</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Ikhsan Ma'ruf Arrosyid</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Ira Anggung Inayah</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Jihan Ayuindiasari</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Khusna Mastukha Putri</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Luna Putri Valentina</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Muhammad Abdul Aziz</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Muhammad Arif Kurniawan</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Nandasya Dewi Azahra</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Nashwa Rasika Marcella</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Naufal Adani</td>
+                        <td>Anggota</td>
+                    </tr>
+                     <tr>
+                        <td>32</td>
+                        <td>Nayla Nadinna Aisyah</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Nova Angelica</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>Rio Muhammad Faisal</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Sandiko Aji Utomo</td>
+                        <td>Anggota</td></tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Silvia Chusnia Arabela </td>
+                        <td>Anggota</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Zuhro Nur Afifah</td>
+                        <td>Anggota</td>
+                    </tr>
+                    <!-- Tambahkan data anggota lainnya di sini -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="media-sosial">
+            <h2>Media Sosial Kami</h2>
+            <p>Ikuti akun Instagram resmi Fourleve untuk melihat foto-foto kegiatan, prestasi, dan momen sehari-hari kelas kami.</p>
+            <div class="social-links">
+                <div class="social-item">
+                    <div class="social-icon">📸</div>
+                    <h3>Instagram Fourleve</h3>
+                    <p>@fourleve_official</p>
+                <a href="https://www.instagram.com/fourleve?" target="_blank" class="cta-button">Buka di Web</a>
+                </div>
+            </div>
+            <div class="embed-container">
+                <iframe src="https://www.instagram.com/fourleve?utm_source=qr&igsh=Z2Ntd3JrMzNkZXJ5" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FOURLEVE. Hak Cipta Dilindungi.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
-
