@@ -180,6 +180,14 @@ section {
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid #ccc;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
@@ -509,4 +517,6 @@ footer {
     }
 }
 
-   
+
+
+    
