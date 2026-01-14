@@ -8,6 +8,25 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Intersection Observer for section animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
 // Fungsi untuk mengubah background header
 const backgroundImages = [
     'fourleve.jpeg',
@@ -63,15 +82,15 @@ function openFeatureModal(featureType) {
 
     switch(featureType) {
         case 'prestasi':
-            title = "Galeri Prestasi Akademik";
+            title = "Galeri Prestasi";
             images = [
                 "fourleve4.jpeg", // Ganti dengan nama file gambar yang sesuai
                 "fourleve5.jpeg",
                 "fourleve6.jpeg"
             ];
             break;
-        case 'solidaritas':
-            title = "Galeri Solidaritas";
+        case 'bersama':
+            title = "Galeri Bersama";
             images = [
                 "fourleve7.jpeg",
                 "fourleve8.jpeg",
